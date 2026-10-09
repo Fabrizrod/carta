@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Conversación pendiente 💌</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Corazones de fondo (los crea script.js) -->
+  <div id="fondo"></div>
+
+  <main class="card">
+    <span class="brillo b1">✨</span>
+    <span class="brillo b2">✨</span>
+    <span class="brillo b3">🌸</span>
+
+    <!-- Pantalla inicial -->
+
+    <section id="pregunta">
+      <div class="corazon-latido">💖</div>
+      <h1>Tenemos una conversación pendiente</h1>
+      <p id="mensaje">¿Hablamos?</p>
+
+      <!-- GIF que cambia en cada rechazo (los links se cambian en script.js) -->
+      <img id="gifRechazo" class="oculto" src="" alt="gif">
+
+      <div class="botones">
+        <button id="btnAceptar" class="aceptar">Aceptar 💛</button>
+        <button id="btnRechazar" class="rechazar">Rechazar</button>
+      </div>
+    </section>
+
+    <!-- Pantalla si acepta -->
+    <section id="exito" class="oculto">
+      <h1>¡Gracias! 🥹💛</h1>
+      <p class="script">Nos vemos después del trabajo, que tengas una bonita mañana y tarde como lo eres tú 🌟</p>
+      <!-- 👇 AQUÍ REEMPLAZAS EL GIF 👇 -->
+      <img id="gif" src="gifs/squid-game-squid-game-3.gif" alt="gif">
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

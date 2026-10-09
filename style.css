@@ -1,0 +1,303 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Quicksand", system-ui, sans-serif;
+    background: linear-gradient(135deg, #ffd6e0, #ffe9c7, #ffd1f0);
+    background-size: 300% 300%;
+    animation: fondoMovil 12s ease infinite;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+@keyframes fondoMovil {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Corazones flotantes de fondo */
+#fondo {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.flota {
+    position: absolute;
+    bottom: -50px;
+    opacity: 0.7;
+    animation: subir linear forwards;
+}
+
+@keyframes subir {
+    to {
+        transform: translateY(-115vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+/* Tarjeta */
+.card {
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.92);
+    max-width: 420px;
+    width: 100%;
+    padding: 40px 28px;
+    border-radius: 28px;
+    text-align: center;
+    border: 3px solid #ffc2d1;
+    box-shadow: 0 15px 40px rgba(255, 107, 139, 0.3);
+    animation: aparecer 0.8s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* Corazón que late */
+.corazon-latido {
+    font-size: 64px;
+    display: inline-block;
+    animation: latido 1.3s infinite;
+    margin-bottom: 8px;
+}
+
+@keyframes latido {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.25);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.2);
+    }
+}
+
+/* Brillitos decorativos */
+.brillo {
+    position: absolute;
+    font-size: 22px;
+    animation: titilar 2.5s infinite;
+}
+
+.b1 {
+    top: 14px;
+    left: 18px;
+}
+
+.b2 {
+    top: 20px;
+    right: 22px;
+    animation-delay: 0.8s;
+}
+
+.b3 {
+    bottom: 16px;
+    left: 24px;
+    animation-delay: 1.5s;
+}
+
+@keyframes titilar {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(0.8) rotate(0);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.2) rotate(15deg);
+    }
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: #d6336c;
+    margin-bottom: 14px;
+}
+
+p {
+    color: #666;
+    font-size: 1.1rem;
+    min-height: 60px;
+    margin-bottom: 24px;
+    font-weight: 500;
+}
+
+p.script {
+    font-family: "Pacifico", cursive;
+    font-size: 1.5rem;
+    color: #ff6b8b;
+    min-height: auto;
+}
+
+.pop {
+    animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Botones */
+.botones {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+button {
+    border: none;
+    border-radius: 999px;
+    padding: 12px 24px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.aceptar {
+    background: linear-gradient(135deg, #ff6b8b, #ff8fa3);
+    color: #fff;
+    box-shadow: 0 6px 18px rgba(255, 107, 139, 0.45);
+}
+
+.aceptar:hover {
+    box-shadow: 0 8px 24px rgba(255, 107, 139, 0.7);
+}
+
+.rechazar {
+    background: #eee;
+    color: #888;
+}
+
+/* Pantalla final */
+#exito img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 20px;
+    margin-top: 18px;
+    border: 4px solid #ffc2d1;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+#exito {
+    animation: aparecer 0.8s ease;
+}
+
+/* Corazones que explotan al hacer clic */
+.chispa {
+    position: fixed;
+    z-index: 10;
+    pointer-events: none;
+    animation: explota 1s ease-out forwards;
+}
+
+@keyframes explota {
+    to {
+        transform: translate(var(--x), var(--y)) scale(0.4);
+        opacity: 0;
+    }
+}
+
+.oculto {
+    display: none;
+}
+
+/* GIF que aparece al rechazar */
+#gifRechazo {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 16px;
+    margin: 0 auto 20px;
+    
+    border: 3px solid #ffc2d1;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Botón de rechazar que se mueve por la pantalla */
+.rechazar.huyendo {
+    position: fixed;
+    z-index: 20;
+    transform-origin: top left;
+    transition: left 0.5s ease, top 0.5s ease, transform 0.5s ease;
+}
+
+button { -webkit-tap-highlight-color: transparent; }
+
+/* Para que el mensaje y el gif se lean por encima del botón gigante */
+#mensaje, #gifRechazo { position: relative; z-index: 30; }
+
+#mensaje.pop {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 10px 12px;
+}
+
+/* Botón de aceptar gigante */
+.aceptar.gigante {
+  position: fixed;
+  z-index: 15;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 40px;
+  transform: none !important;
+  transition: left 0.6s ease, top 0.6s ease, width 0.6s ease,
+              height 0.6s ease, font-size 0.6s ease;
+}
+
+/* El botón de rechazar siempre por encima de todo */
+.rechazar.huyendo { z-index: 40; }
+
+#gifRechazo { display: block; }
+#gifRechazo.oculto { display: none; }
